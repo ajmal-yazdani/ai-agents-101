@@ -71,7 +71,7 @@ tool_names = ",".join([tool.name for tool in tools])
 tool_descriptions = "\n".join(
     [f"{tool.name}: {tool.description}" for tool in tools])
 
-# ✅ Define Prompt Template with agent_scratchpad as a variable
+# Define Prompt Template with agent_scratchpad as a variable
 iss_prompt = PromptTemplate(
     input_variables=["input", "agent_scratchpad"],
     template="""
@@ -118,7 +118,7 @@ agent_executor = AgentExecutor(
 )
 
 # Log agent initialization
-logging.info("🚀 ISS Locator Agent initialized.")
+logging.info("ISS Locator Agent initialized.")
 
 # Example execution
 if __name__ == "__main__":

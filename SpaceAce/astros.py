@@ -73,7 +73,7 @@ tool_names = ", ".join([tool.name for tool in tools])
 tool_descriptions = "\n".join(
     [f"{tool.name}: {tool.description}" for tool in tools])
 
-# ✅ Define Prompt Template with agent_scratchpad as a variable
+# Define Prompt Template with agent_scratchpad as a variable
 astros_prompt = PromptTemplate(
     input_variables=["input", "agent_scratchpad"],
     template="""
@@ -121,7 +121,7 @@ agent_executor = AgentExecutor(
 )
 
 # Log agent initialization
-logging.info("🚀 Astros in Space Agent initialized.")
+logging.info("Astros in Space Agent initialized.")
 
 # Example execution
 if __name__ == "__main__":

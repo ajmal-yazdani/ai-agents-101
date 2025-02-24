@@ -82,14 +82,14 @@ parent_agent = initialize_agent(
 )
 
 logging.info(
-    f"🚀 Main Parent Routing Agent Initialized with Tools: {[tool.name for tool in parent_tools]}")
+    f"Main Parent Routing Agent Initialized with Tools: {[tool.name for tool in parent_tools]}")
 
 #  Streamlit UI - Chat with the ISS Agent
 st.title("🌌 Chat with the Space Ace")
 st.write("Ask real-time questions about the Space!")
 
 # User input text area
-user_input = st.text_area("🚀 Enter your space-related question:")
+user_input = st.text_area("Enter your space-related question:")
 
 # Conversation History (Stored in Session)
 if "conversation" not in st.session_state:
@@ -99,24 +99,24 @@ if st.button("Send"):
     if not user_input:
         st.warning("⚠️ Please enter a question.")
     else:
-        # 🚀 Invoke the ISS Agent
+        # Invoke the ISS Agent
         response = parent_agent.invoke(user_input)
 
-        # ✅ Extract response text
+        # Extract response text
         response_text = response.get("output", "No valid response received.")
 
-        # ✅ Display AI Agent's response
+        # Display AI Agent's response
         st.write(f"### **🛰️ Question:** {user_input}")
         st.write(f"### **📡 Response:** {response_text}")
 
-        # ✅ Save conversation history
+        # Save conversation history
         st.session_state.conversation.append(
             {"role": "user", "content": user_input})
         st.session_state.conversation.append(
             {"role": "assistant", "content": response_text})
 
-# 📜 Display Conversation History
+# Display Conversation History
 st.write("### 💬 Conversation History")
 for chat in st.session_state.conversation:
-    role = "🧑‍🚀 You" if chat["role"] == "user" else "🤖 Space Ace"
+    role = "You" if chat["role"] == "user" else "Space Ace"
     st.write(f"**{role}:** {chat['content']}")
